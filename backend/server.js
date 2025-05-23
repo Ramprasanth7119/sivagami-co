@@ -37,9 +37,10 @@ const port=process.env.PORT || 4000//if port is available in env, it will be use
 // to add middleware we will use
 app.use(express.json())//whatever request we will get that will be passed using json
 app.use(cors({
-  origin: "*", // or set your frontend domain like "https://your-frontend.com"
+  origin: ["https://sivagami-co-admin-m0ldwrddc-ramprasanth7119s-projects.vercel.app"], // replace '*' with your frontend domain for better security
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
+  allowedHeaders: ["Content-Type", "Authorization", "token"], // include 'token'
+  credentials: true // optional, if you're using cookies or sessions
 }));
 
 app.use(bodyParser.urlencoded({ extended: true }));

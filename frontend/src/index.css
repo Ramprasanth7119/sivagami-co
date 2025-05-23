@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Prata&display=swap');
+/* adding custom fonts */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* whenever we have an active classname available in the anchor tag, then in hr tag we will make it visible */
+a.active hr{
+    display: block;
+}
+
+*{
+    font-family: Outfit;
+}
+
+.prata-regular {
+    font-family: "Prata", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  /* to hide the scrollbar */
+  ::-webkit-scrollbar{
+    display: none;
+  }
+
+  /*  adding logic in sidemenu so we will know in which page we are in */
+  @media (max-width:640px) {
+    a.active{
+        background-color: black;
+        color: white;
+    }
+  }
+  

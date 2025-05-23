@@ -1,24 +1,13 @@
-import { v2 as cloudinary } from "cloudinary";
-import { CloudinaryStorage } from "multer-storage-cloudinary";
-import multer from "multer";
+import multer from "multer"
+//create a storage config
+const storage=multer.diskStorage({//object where we will define a file name property
+    filename:function(req,file,callback){//store a function in the filename
+        callback(null,file.originalname)//call cb function and in first parameter we will pass null and in 2nd parameter, we will return our file.originalName
+    }
+})
 
-// Cloudinary Config
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_SECRET_KEY,
-});
+//using diskstorage, we will create one upload middleware
 
-// Define Cloudinary Storage
-const storage = new CloudinaryStorage({
-  cloudinary,
-  params: {
-    folder: "products", // Folder name in Cloudinary
-    allowed_formats: ["jpg", "png", "jpeg"],
-    transformation: [{ width: 500, height: 500, crop: "limit" }]
-  }
-});
+const upload=multer({storage})//we will use multer package and here provide our storage created above
 
-const upload = multer({ storage });
-
-export default upload;
+export default upload//export upload middleware// use this in productRoute(use in addProduct route because we have to send multiple images that will be passed using multiple middlware, provide the middleware in productRoute)

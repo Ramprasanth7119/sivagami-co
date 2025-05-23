@@ -48,10 +48,10 @@ connectCloudinary()
 
 // api endpoints
 
-app.use("/api/user",userRouter)
-app.use("/api/product",productRouter)
-app.use("/api/cart",cartRouter)
-app.use("/api/order",orderRouter)//endpoint and orderRouter function from orderRoutes.js
+app.use("api/user",userRouter)
+app.use("api/product",productRouter)
+app.use("api/cart",cartRouter)
+app.use("api/order",orderRouter)//endpoint and orderRouter function from orderRoutes.js
 // first add function in routes and we have added router in server.js with endpoint
 // now we will create middleware, using the middleware we will authenticate the user
 app.get('/',(req,res)=>{//path 

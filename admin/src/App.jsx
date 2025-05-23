@@ -15,7 +15,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
 //now we will make an api call, before making an api call, we will go to app.jsx and before this function we will create variables
-export const backendUrl=import.meta.env.VITE_BACKEND_URL//we will get this from .env variable, export it so that we can use it in any component
+export const backendUrl="https://sivagami-co-backend.onrender.com/"
 // now we will set up routes using the 3 pages we have created here
 //now we have to create functionality for logout button
 //declare the currency here

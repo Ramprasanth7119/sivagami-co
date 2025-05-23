@@ -36,7 +36,12 @@ const port=process.env.PORT || 4000//if port is available in env, it will be use
 //middlewares
 // to add middleware we will use
 app.use(express.json())//whatever request we will get that will be passed using json
-app.use(cors())//we can access backend from any ip
+app.use(cors({
+  origin: "*", // or set your frontend domain like "https://your-frontend.com"
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 connectDB()
 connectCloudinary()
